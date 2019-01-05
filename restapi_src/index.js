@@ -1,9 +1,14 @@
 const { Kafka } = require('kafkajs');
-console.log('hello kafka');
+const Koa = require('koa');
+const app = new Koa();
 
-setInterval(()=>{
 
-},2000);
+app.use(async ctx => {
+  ctx.body = 'Hello World';
+});
+
+app.listen(80);
+
 const kafka = new Kafka({
   clientId: 'data-recorder',
   brokers: ['kafka:29092']
@@ -38,7 +43,7 @@ var producer_fn = async () => {
     await producer.send({
       topic: 'topic-name',
       messages: [
-        { key: 'key1', value: 'hello world'+ new Date(), carlos:'123'},
+        { key: 'key1', value: 'hello world time'+ new Date(), carlos:'123'},
       ],
     });
     // before you exit your app
@@ -46,6 +51,7 @@ var producer_fn = async () => {
 };
 
 
-setInterval(()=>{
-  producer_fn().then(()=>{}).catch(()=>{});
-},5000);
+// setInterval(()=>{
+//   console.log('try producer');
+//   producer_fn().then(()=>{}).catch(()=>{});
+// },5000);

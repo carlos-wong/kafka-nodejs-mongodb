@@ -30,3 +30,22 @@ consumer_fn()
   .catch(err=>{
     console.log('consumer err:',err);
   });
+
+const producer = kafka.producer();
+
+var producer_fn = async () => {
+    await producer.connect();
+    await producer.send({
+      topic: 'topic-name',
+      messages: [
+        { key: 'key1', value: 'hello world'+ new Date(), carlos:'123'},
+      ],
+    });
+    // before you exit your app
+    await producer.disconnect();
+};
+
+
+setInterval(()=>{
+  producer_fn().then(()=>{}).catch(()=>{});
+},5000);

@@ -1,0 +1,17 @@
+{
+  "name": "restapi_src",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm install && ./node_modules/supervisor/lib/cli-wrapper.js index.js",
+    "producer": "npm install && ./node_modules/supervisor/lib/cli-wrapper.js producer.js",
+    "build": "",
+    "test": "",
+    "eject": ""
+  },
+  "dependencies": {
+    "kafkajs": "^1.4.6",
+    "koa": "^2.6.2",
+    "supervisor": "^0.12.0"
+  }
+}

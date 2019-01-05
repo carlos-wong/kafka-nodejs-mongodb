@@ -1,0 +1,6 @@
+mongodb_data
+restapi_src/.tern-port
+restapi_src/node_modules
+restapi_src/package-lock.json
+restapi_src/yarn-error.log
+restapi_src/yarn.lock
